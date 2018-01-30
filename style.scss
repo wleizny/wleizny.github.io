@@ -19,7 +19,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 14px/1.4 $helvetica;
   color: $darkGray;
 }
 
@@ -56,12 +56,12 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h4 {
-  font-size: 18px;
-  color: $gray;
+  font-size: 14px;
+  color: $darkerGray;
 }
 
 p {
