@@ -13,7 +13,7 @@ $$ f(x) = \underbrace{w_0 + \sum_{i=1}^{n}{w_i x_i}}_{线性模型} + \underbrac
 
 $$ f(x) = w_0 + \sum_{i=1}^{n}{w_i x_i} + \sum_{i=1}^{n}\sum_{j=i+1}^{n}{<v_i \cdot v_j> x_i x_j} \tag{2} $$
 
-其中， $v_i, v_j \in R^k$, 是包含k个元素的一维向量。在公式1中，二阶交叉项参数 $w_{i, j}$ 共有 $\frac{n(n+1)}{2}$ 项，而公式2中隐向量需要学习的参数有 $nk$ 项，由于 $k$ 往往远小于 $n$， 所以转化后的模型复杂度大大降低。  
+其中， $v_i, v_j \in R^k$, 是包含k个元素的一维向量。在公式1中，二阶交叉项参数 $w_{i, j}$ 共有 $\frac{n(n+1)}{2}$ 项，而公式2中隐向量需要学习的参数有 $nk$ 项，由于 $k$ 往往远小于 $n$， 所以转化后的模型复杂度大大降低。
 我们接着对公式(2)中的交叉项进行一些变换
 
 $$
@@ -76,8 +76,8 @@ $$
 \right. \tag{9}
 $$
 
-### 使用交替最小二乘法(Alternating Least Squares)求解FM
-FM是关于参数 $\theta$ 的线性函数，因此，我们可以把FM模型重写为
+### 使用交替最小二乘法(Alternating Least Squares)求解FM
+FM是关于参数 $\theta$ 的线性函数，因此，我们可以把FM模型重写为
 
 $$ f(x|\Theta) = g_{(\Theta)}(x) + \theta h_{(\Theta)}(x) \tag{10}$$
 
@@ -97,7 +97,7 @@ $$ f(x|v_{l,f}) = \underbrace{w_0 + \sum_{i=1}^{n}w_i x_i + \sum_{i=1}^{n}\sum_{
 
 $$ \frac{\partial}{\partial \theta} f(x|\theta) = h_{(\theta)}(x) \tag{14} $$
 
-把式(14)带入式(8)有
+把式(14)带入式(8)有
 
 $$ \frac{\partial}{\partial \theta}L = -\frac{1}{m}\sum_{i=1}^{m}(y - f(x|\theta))h_{(\theta)}(x) + \lambda_{(\theta)} \theta \tag{15} $$
 
@@ -106,7 +106,7 @@ $$ \frac{\partial}{\partial \theta}L = -\frac{1}{m}\sum_{i=1}^{m}(y - f(x|\theta
 $$
 \begin{split}
 & 0 = -\frac{1}{m}\sum_{i=1}^{m}(y - f(x|\theta))h_{(\theta)}(x) + \lambda_{(\theta)} \theta \\
-\Leftrightarrow & 0 = -\frac{1}{m}\sum_{i=1}^{m}(y - g_{(\theta)}(x) - \theta h_{(\theta)}(x))h_{(\theta)}(x) + \lambda_{(\theta)} \theta \\
+\Leftrightarrow & 0 = -\frac{1}{m}\sum_{i=1}^{m}(y - g_{(\theta)}(x) - \theta h_{(\theta)}(x))h_{(\theta)}(x) + \lambda_{(\theta)} \theta \\
 \Leftrightarrow & \theta = -\frac{\sum_{i=1}^{m}( g_{(\theta)}(x) - y)h_{(\theta)}(x)}{\sum_{i=1}^{m}h_{(\theta)}^2(x) + m\lambda_{(\theta)}}
 \end{split} \tag{16}
 $$
@@ -129,7 +129,7 @@ $$ e(x,y|\Theta^*) = e(x,y|\Theta) + (\theta^* - \theta)h_{(\theta)}(x) \tag{19}
 
 这里， $\Theta^*$ 包含所有模型参数，但是只有参数 $\theta$ 更新为 $\theta^*$
 
-同样，我们也可以预先计算好 $h_{(\theta)}(x)$。对于 $w_0$ 和 $w_i$, 计算 $h_{(\theta)}(x)$ 的复杂度是 $O(1)$, 对于 $v_{l,f}$
+同样，我们也可以预先计算好 $h_{(\theta)}(x)$。对于 $w_0$ 和 $w_i$, 计算 $h_{(\theta)}(x)$ 的复杂度是 $O(1)$, 对于 $v_{l,f}$
 
 $$\begin{split}
 h_{(v_{l,f})}(x) & = x_l \sum_{i=1, i \neq l}^{n}v_{i,f}x_i \\
@@ -149,11 +149,11 @@ $$ h_{(v_{l,f})}(x) = x_l q(x,y|\Theta) - v_{l,f} x_i^2  \tag{22} $$
 
 $$ q(x,y|\Theta^*) = q(x,y|\Theta) + (v_{l,f}^* - v_{l,f})x_l \tag{23} $$
 
-完整的计算过程如下
+完整的计算过程如下
 
-![FM_ALS_Procedure]({{ site.baseurl }}/images/fm_als_procedure.png)
+![FM_ALS_Procedure]({{ site.baseurl }}/images/fm_als_procedure.png)
 
-### 使用马尔科夫链蒙特卡洛方法(Markov Chain Monte Carlo, MCMC)求解FM
+### 使用马尔科夫链蒙特卡洛方法(Markov Chain Monte Carlo, MCMC)求解FM
 
 ### 使用自适应随机梯度下降(SGDA)求解FM
 
