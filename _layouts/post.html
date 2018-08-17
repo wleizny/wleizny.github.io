@@ -15,4 +15,12 @@ layout: default
 
   {% include disqus.html %}
   {% include mathjax.html %}
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { 
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true
+    }
+  });
+  </script>
 </article>
