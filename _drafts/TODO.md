@@ -5,3 +5,4 @@
 |group by & distinct 性能||
 |EM算法||
 |MCMC算法||
+|SVM||
