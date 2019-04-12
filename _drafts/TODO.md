@@ -6,5 +6,5 @@
 |EM算法|√|
 |MCMC算法|√|
 |SVM||
-|ID3,C4.5,CART||
+|ID3,C4.5,CART|√|
 |gbdt,rf,gbm比较||
